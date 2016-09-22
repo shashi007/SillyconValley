@@ -1,0 +1,63 @@
+.bar {
+  height: 1em;
+  color: #eee;
+  font-size: 0.9em;
+}
+
+.inactive-bar {
+  background-color: #444;
+}
+
+.active-bar {
+  background-color: #777;
+}
+
+.container {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.producer {
+  margin: 1em 0;
+}
+
+.producer-name {
+  font-size: 1.2em;
+}
+
+.producer-level {
+  color: #777;
+}
+
+.producer-quantity {
+  float: right;
+}
+
+.producer-description {
+  font-size: 0.9em;
+  color: #222;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-producer {
+  width: 66%;
+}
+
+.flex-render {
+  width: 33%;
+}
+
+.monkey-render {
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+}
+
+.monkey-match {
+  color: black;
+}
