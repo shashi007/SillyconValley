@@ -33,7 +33,11 @@ export default class Monkey extends React.Component {
   }
 
   renderHash(hash) {
-    return _.map(hash, v => <span className={v === '1' ? 'monkey-match' : ''}>{v}</span>);
+    return _.map(hash, (v,i) => <span key={i} className={v === '1' ? 'monkey-match' : ''}>{v}</span>);
+  }
+
+  purchase() {
+    this.setState({quantity: this.state.quantity + 1});
   }
 
   render() {
@@ -43,6 +47,7 @@ export default class Monkey extends React.Component {
             name='Monkey + Typewriter'
             description='Wait long enough..'
             baseRate=''
+            purchase={this.purchase.bind(this)}
             percentage={this.compareHash(this.state.hash) / HASH_LENGTH * 100}
             quantity={this.state.quantity}
         />
