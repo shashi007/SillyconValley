@@ -26,6 +26,9 @@ export default class App extends React.Component {
             addTokens={this.addTokens.bind(this)}
             tokens={this.state.tokens}
             />
+        <div className="pull-right">
+          v{this.props.version}
+        </div>
       </div>
     )
   }
