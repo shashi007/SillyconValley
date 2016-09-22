@@ -7,6 +7,12 @@ const ProducersList = (props) => (
   <div className="producers-list">
     <Monkey {...props} />
     <Highschooler {...props} />
+    {
+    // Outsourced
+    // Software Engineer
+    // AI
+    // Super AI
+    }
   </div>
 )
 

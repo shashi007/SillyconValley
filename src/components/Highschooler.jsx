@@ -2,25 +2,44 @@ import React from 'react';
 import Producer from './Producer';
 import _ from 'underscore';
 
-const INTERVAL_TIME = 250;
+const INTERVAL_DURATION = 1000;
+
+const loc = [
+  'while (true) {',
+  'function foo(x) { foo(x); }',
+  'if (true) {',
+  'func x = func x + 1',
+  'console.log(\'whyyy\')',
+  'println("hello world")',
+  'puts "hello world"',
+  'loop: goto loop',
+  'globalVar = 42',
+  'assertEqual(true, true)'
+];
 
 export default class Highschooler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 1
+      quantity: 1,
+      percentage: 0
     }
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
       this.tic();
-    }, INTERVAL_TIME)
+    }, INTERVAL_DURATION / 30);
   }
 
   tic() {
-    let value = 1 * this.state.quantity;
-    this.props.addTokens(value);
+    if (this.state.percentage >= 99) {
+      let value = 1 * this.state.quantity;
+      this.props.addTokens(value);
+      let i = Math.floor(Math.random() * loc.length);
+      this.setState({text: loc[i], percentage: 0});
+    }
+    this.setState({percentage: this.state.percentage + 100 / 30});
   }
 
   purchase() {
@@ -28,8 +47,6 @@ export default class Highschooler extends React.Component {
   }
 
   render() {
-    let x = Math.floor(Math.random() * 10) + 1;
-    let y = Math.floor(Math.random() * 10) + 1;
 
     return (
       <div className="flex-row">
@@ -37,12 +54,12 @@ export default class Highschooler extends React.Component {
             name='Highschooler'
             description='Shitty, but cheap'
             baseRate=''
-            percentage={50}
+            percentage={this.state.percentage}
             purchase={this.purchase.bind(this)}
             quantity={this.state.quantity}
         />
         <div className="flex-render highschooler-render">
-          {this.state.quantity > 0 ? `${x} + ${y} = ${x + y}` : ''}
+          {this.state.text}
         </div>
       </div>
     )
