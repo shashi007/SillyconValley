@@ -48,16 +48,20 @@
 
 .flex-render {
   width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .monkey-render {
   font-family: monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #aaa;
 }
 
 .monkey-match {
   color: black;
+}
+
+.highschooler-render {
+  color: #aaa;
 }

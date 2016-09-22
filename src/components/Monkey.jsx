@@ -23,7 +23,7 @@ export default class Monkey extends React.Component {
 
   tic() {
     let hash = md5(Math.random()).substring(0, HASH_LENGTH);
-    let value = this.compareHash(hash);
+    let value = this.compareHash(hash) * this.state.quantity;
     this.props.addTokens(value);
     this.setState({hash});
   }
