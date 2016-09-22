@@ -43,7 +43,14 @@ export default class Highschooler extends React.Component {
   }
 
   purchase() {
-    this.setState({quantity: this.state.quantity + 1});
+    if (this.price() <= this.props.tokens) {
+      this.props.addTokens(-this.price());
+      this.setState({quantity: this.state.quantity + 1});
+    }
+  }
+
+  price() {
+    return Math.floor(100 + 100 * Math.pow(1.2, this.state.quantity));
   }
 
   render() {
@@ -54,6 +61,7 @@ export default class Highschooler extends React.Component {
             name='Highschooler'
             description='Shitty, but cheap'
             baseRate=''
+            price={this.price()}
             percentage={this.state.percentage}
             purchase={this.purchase.bind(this)}
             quantity={this.state.quantity}
