@@ -1,5 +1,5 @@
 import React from 'react';
-import Producer from './Producer';
+import ProducerInfo from './ProducerInfo';
 import md5 from 'md5';
 import _ from 'underscore';
 
@@ -50,7 +50,7 @@ export default class Monkey extends React.Component {
   render() {
     return (
       <div className="flex-row">
-        <Producer
+        <ProducerInfo
             name='Monkey + Typewriter'
             description='Wait long enough..'
             baseRate=''

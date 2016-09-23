@@ -1,5 +1,5 @@
 import React from 'react';
-import Producer from './Producer';
+import ProducerInfo from './ProducerInfo';
 import _ from 'underscore';
 
 const INTERVAL_DURATION = 1000;
@@ -57,7 +57,7 @@ export default class Highschooler extends React.Component {
 
     return (
       <div className="flex-row">
-        <Producer
+        <ProducerInfo
             name='Highschooler'
             description='Shitty, but cheap'
             baseRate=''
