@@ -1,14 +1,12 @@
 import React from 'react';
 import Producer from './Producer';
-import Monkey from './Monkey';
-import Highschooler from './Highschooler';
 import MonkeyModel from '../models/Monkey';
+import HighschoolerModel from '../models/Highschooler';
 
 const ProducersList = (props) => (
   <div className="producers-list">
-    <Monkey {...props} />
-    <Highschooler {...props} />
     <Producer model={MonkeyModel} {...props} />
+    <Producer model={HighschoolerModel} {...props} />
     {
     // Outsourced
     // Software Engineer

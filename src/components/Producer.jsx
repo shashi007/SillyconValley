@@ -23,7 +23,7 @@ export default class Producer extends React.Component {
             price={m.price()}
             purchase={() => m.purchase(this.props.tokens)}
             percentage={m.percentage()}
-            quantity={m.quantity}
+            quantity={m.quantity === 0 ? '0' : m.quantity}
         />
         <div className="flex-render">
           {m.render()}
