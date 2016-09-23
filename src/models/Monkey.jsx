@@ -2,15 +2,16 @@ import React from 'react';
 import md5 from 'md5';
 import _ from 'underscore';
 
+import ProducerModel from './ProducerModel';
+
 const INTERVAL_TIME = 250;
 const HASH_LENGTH = 16;
 
-export default class Monkey {
+export default class Monkey extends ProducerModel {
   constructor(addTokens, forceUpdate) {
+    super(addTokens, forceUpdate);
     this.name = 'Monkey + Typewriter';
     this.description = 'Wait long enough...';
-    this.addTokens = addTokens;
-    this.forceUpdate = forceUpdate;
     this.quantity = 1;
     this.hash = '';
   }
@@ -40,15 +41,10 @@ export default class Monkey {
     return Math.floor(50 + 50 * Math.pow(1.2, this.quantity));
   }
 
-  purchase(tokens) {
-    if (this.price() <= tokens) {
-      this.addTokens(-this.price());
-      this.quantity = this.quantity + 1;
-    }
-  }
   percentage() {
     return this.compareHash(this.hash) / HASH_LENGTH * 100;
   }
+
   render() {
     return (
       <div className="monkey-render">
