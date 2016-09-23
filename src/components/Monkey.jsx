@@ -37,7 +37,14 @@ export default class Monkey extends React.Component {
   }
 
   purchase() {
-    this.setState({quantity: this.state.quantity + 1});
+    if (this.price() <= this.props.tokens) {
+      this.props.addTokens(-this.price());
+      this.setState({quantity: this.state.quantity + 1});
+    }
+  }
+
+  price() {
+    return Math.floor(50 + 50 * Math.pow(1.2, this.state.quantity));
   }
 
   render() {
@@ -47,6 +54,7 @@ export default class Monkey extends React.Component {
             name='Monkey + Typewriter'
             description='Wait long enough..'
             baseRate=''
+            price={this.price()}
             purchase={this.purchase.bind(this)}
             percentage={this.compareHash(this.state.hash) / HASH_LENGTH * 100}
             quantity={this.state.quantity}

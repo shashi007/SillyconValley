@@ -18,12 +18,17 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="container">
+        <h1>Sillycon Valley</h1>
         <div>
-          Tokens: { this.state.tokens }
+          Cash: ${this.state.tokens}.00
         </div>
         <ProducersList
             addTokens={this.addTokens.bind(this)}
+            tokens={this.state.tokens}
             />
+        <div className="pull-right">
+          v{this.props.version}
+        </div>
       </div>
     )
   }

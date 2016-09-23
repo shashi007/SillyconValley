@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import md5 from 'md5';
+import pkg from 'json!../package.json';
 
 const producersList = {
   1: {
@@ -41,5 +42,5 @@ const initialGameState = {
 }
 
 ReactDOM.render((
-  <App producers={producersList} initialGameState={initialGameState} />
+  <App producers={producersList} initialGameState={initialGameState} version={pkg.version} />
 ), document.getElementById('app'));
